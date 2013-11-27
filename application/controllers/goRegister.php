@@ -33,7 +33,6 @@
         function check_database()
         {
             //Field validation succeeded.  Validate against database
-
             if ($sex = $this->input->post('sex') == 1) {
                 $sex = 'F';
             } else {
@@ -48,6 +47,7 @@
             //query the database
             $result = $this->registermodel->register($username, $password, $sex, $email, $full_name, $birthday);
             if ($result) {
+                $this->send($email);
                 return TRUE;
             } else {
                 $this->form_validation->set_message('check_database', 'Invalid username or password');
@@ -63,6 +63,21 @@
                 return false;
             }
             return true;
+        }
+
+        function send($email)
+        {
+            $this->load->library('email');
+
+            $this->email->from('kutaliatato@gmail.com', 'System');
+            $this->email->to($email);
+            $this->email->subject('Password Recovery');
+            $this->email->message('Your New Password is ######');
+            if ($this->email->send()) {
+                echo "Check Your Inbox";
+            } else {
+                echo $this->email->print_debugger();
+            }
         }
     }
 
