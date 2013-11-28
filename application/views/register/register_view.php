@@ -8,22 +8,24 @@
 <!--[if gt IE 8]><!-->
 <html lang="en"> <!--<![endif]-->
 <head>
-    <title>Register Here</title>
+    <title>Registration</title>
+    <meta name="author" content="Kutalia Merabi">
+    <link rel="shortcut icon" href="<?php echo base_url()."img/favicon.png"?>" type="image/png">
+    <link rel="stylesheet" href="<?php echo base_url()."css/register.css"?>">
 </head>
 <body>
 <h1 class="title">Welcome To Registration</h1>
 
 <?php echo validation_errors(); ?>
-<?php echo form_open('goRegister'); ?>
+<?php $attributes = array('class' => 'register'); ?>
+<?php echo form_open('goRegister',$attributes); ?>
+
 <div class="rswitch">
     <input type="radio" name="sex" value="1" id="sex_f" class="register-switch-input" checked="checked">
     <label for="sex_f" class="register-switch-label">Female</label>
     <input type="radio" name="sex" value="2" id="sex_m" class="register-switch-input">
-    <label for="sex_m" class="switch-label">Male</label>
+    <label for="sex_m" class="register-switch-label">Male</label>
 </div>
-<input type="text" class="rinput" placeholder="User Name" name="username" id="myusername" value="<?php echo set_value('username'); ?>">
-
-<div id="valid"></div>
 <input type="password" class="rinput" placeholder="Password" name="password" id="mypassword">
 <input type="password" class="rinput" placeholder="Repeat Password" name="password2" id="mypassword2">
 <input type="text" class="rinput" placeholder="Email address" name="email" id="email" value="<?php echo set_value('email'); ?>">
