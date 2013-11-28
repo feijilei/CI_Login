@@ -53,7 +53,7 @@
     */
 
     //$autoload['libraries'] = array();
-    $autoload['libraries'] = array('database', 'session', 'bcrypt');
+    $autoload['libraries'] = array('database', 'session', 'bcrypt', 'email');
 
 
     /*

@@ -14,7 +14,7 @@
             //This method will have the credentials validation
             $this->load->library('form_validation');
             $this->form_validation->set_rules('sex', 'Gender', 'required');
-            $this->form_validation->set_rules('email', 'E-mail', 'trim|required|xss_clean|callback_validateEmail');
+            $this->form_validation->set_rules('email', 'E-mail', 'trim|required|xss_clean|is_unique[members.email]|callback_validateEmail');
             $this->form_validation->set_rules('full_name', 'Full Name', 'trim|xss_clean|');
             $this->form_validation->set_rules('birthday', 'Date of Birth', 'required');
             $this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean|min_length[6]|is_unique[members.user]');
@@ -47,7 +47,7 @@
             //query the database
             $result = $this->registermodel->register($username, $password, $sex, $email, $full_name, $birthday);
             if ($result) {
-                $this->send($email);
+                $this->send($email, $full_name);
                 return TRUE;
             } else {
                 $this->form_validation->set_message('check_database', 'Invalid username or password');
@@ -65,18 +65,17 @@
             return true;
         }
 
-        function send($email)
+        function send($email, $full_name)
         {
-            $this->load->library('email');
-
-            $this->email->from('kutaliatato@gmail.com', 'System');
+            $this->email->from('tato@innotec.ge', 'System');
             $this->email->to($email);
-            $this->email->subject('Password Recovery');
-            $this->email->message('Your New Password is ######');
+            $this->email->subject('Welcome');
+            $this->email->message("Welcome! \n Dear $full_name, Thanks For Register! ");
             if ($this->email->send()) {
                 echo "Check Your Inbox";
             } else {
-                echo $this->email->print_debugger();
+//                echo $this->email->print_debugger();
+                echo "can't send email";
             }
         }
     }

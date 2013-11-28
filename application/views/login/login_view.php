@@ -16,6 +16,7 @@
       <input type="submit" value="Login"/>
 
      <?php echo anchor('register', 'Register', 'title="Register Here"'); ?>
+    <?php echo anchor('reset', 'Reset Password', 'title="Forgot Password? Reset..."'); ?>
 
     </form>
   </body>
