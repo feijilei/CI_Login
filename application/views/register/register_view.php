@@ -17,7 +17,7 @@
 
     <script>
         $(document).ready(function () {
-            $( ".register" ).effect( "shake");
+            $( ".register" ).effect( "shake",{direction:'up'});
             });
     </script>
 

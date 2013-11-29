@@ -11,7 +11,7 @@
 
     <script>
         $(document).ready(function () {
-            $( "#wrapper" ).effect( "shake");
+            $("#wrapper").effect( "shake","slow");
             $("#submit1").hover(
                 function () {
                     $(this).animate({"opacity": "0.7"}, "slow");
