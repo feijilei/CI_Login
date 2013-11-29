@@ -11,7 +11,16 @@
     <title>Registration</title>
     <meta name="author" content="Kutalia Merabi">
     <link rel="shortcut icon" href="<?php echo base_url()."img/favicon.png"?>" type="image/png">
+    <script type="text/javascript" src="<?php echo base_url() . "js/jquery.js" ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url() . "js/jquery-ui.js" ?>"></script>
     <link rel="stylesheet" href="<?php echo base_url()."css/register.css"?>">
+
+    <script>
+        $(document).ready(function () {
+            $( ".register" ).effect( "shake");
+            });
+    </script>
+
 </head>
 <body>
 <h1 class="title">Welcome To Registration</h1>

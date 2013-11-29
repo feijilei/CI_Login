@@ -4,9 +4,11 @@
     <title>Reset Password</title>
     <link rel="shortcut icon" href="<?php echo base_url() . "/img/favicon.png" ?>" type="image/png">
     <script type="text/javascript" src="<?php echo base_url() . "js/jquery.js" ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url() . "js/jquery-ui.js" ?>"></script>
     <link rel="stylesheet" href="<?php echo base_url() . "css/style.css" ?>">
     <script>
         $(document).ready(function () {
+            $( "#wrapper" ).effect( "shake");
             $("#submit1").hover(
                 function () {
                     $(this).animate({"opacity": "0.7"}, "slow");
