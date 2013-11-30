@@ -35,8 +35,9 @@
     <input type="radio" name="sex" value="2" id="sex_m" class="register-switch-input">
     <label for="sex_m" class="register-switch-label">Male</label>
 </div>
-<input type="password" class="rinput" placeholder="Password" name="password" id="mypassword">
-<input type="password" class="rinput" placeholder="Repeat Password" name="password2" id="mypassword2">
+<input type="text" class="rinput" placeholder="Username" name="username" id="username">
+<input type="password" class="rinput" placeholder="Password" name="password" id="password">
+<input type="password" class="rinput" placeholder="Repeat Password" name="password2" id="password2">
 <input type="text" class="rinput" placeholder="Email address" name="email" id="email" value="<?php echo set_value('email'); ?>">
 <input type="text" class="rinput" placeholder="Full Name" name="full_name" id="full_name" value="<?php echo set_value('username'); ?>">
 <input type="date" class="rinput" id="birthday" name="birthday" value="<?php echo set_value('birthday'); ?>">

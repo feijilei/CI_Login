@@ -16,6 +16,23 @@
                 echo "Email Doesn't Exists";
                 return false;
             }
+        }
+
+        function reset($new, $email)
+        {
+            $salt1 = "nimda";
+            $salt2 = "1@3$";
+            $hash = sha1("$salt1$new$salt2");
+
+            $this->db->where('email', $email);
+            $this->db->update('members', array('password' => $hash));
+
+            if ($this->db->affected_rows()) {
+                return true;
+            } else {
+                return false;
+            }
 
         }
+
     }

@@ -16,13 +16,13 @@
             $this->form_validation->set_rules('email', 'E-mail', 'trim|required|xss_clean|callback_validateEmail');
 
             if ($this->form_validation->run() == FALSE) {
-                //Field validation failed.  User redirected to login page
+                //Field validation failed.  User redirected to reset page
                 $this->load->view('reset/reset_view');
             } else {
                 if ($this->check_database()) {
                     redirect('login', 'refresh');
                 } else {
-                    $this->load->view('reset/reset_view');
+                    $this->load->view('login/login_view');
                 }
 
                 //Go to private area
@@ -63,12 +63,19 @@
             }
         }
 
+        function generate($email)
+        {
+            $new = rand(10000,99999);
+            $this->checkemail->reset($new,$email);
+            return $new;
+        }
+
         function send($email)
         {
             $this->email->from('tato@innotec.ge', 'System');
             $this->email->to($email);
             $this->email->subject('Password Recovery');
-            $this->email->message('Your New Password is ######');
+            $this->email->message('Your New Password is ' . $this->generate($email));
             if ($this->email->send()) {
                 echo "Check Your Inbox";
             } else {
