@@ -70,7 +70,7 @@
             $this->email->from('tato@innotec.ge', 'System');
             $this->email->to($email);
             $this->email->subject('Welcome');
-            $this->email->message("Welcome! \nDear $full_name, Thanks For Register! ");
+            $this->email->message("Welcome! \n Dear $full_name, Thanks For Register! ");
             if ($this->email->send()) {
                 echo "Check Your Inbox";
             } else {
